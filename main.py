@@ -1,4 +1,5 @@
 from telegram.ext import Updater, ConversationHandler, CommandHandler, Filters, MessageHandler
+from logg import logging
 
 CHOICE, NUMBER_ONE, NUMBER_TWO, OPERATIONS_NUMBERS = range(4)
 
@@ -11,12 +12,18 @@ def start(update, _):
 
 
 def choice(update, _):
+    user = update.message.from_user
+    logging.info("Start of the program: %s: %s", user.first_name, update.message.text)
     user_choice = update.message.text
     if user_choice in '12':
         if user_choice == '1':
+            user = update.message.from_user
+            logging.info("The user has started work: %s: %s", user.first_name, update.message.text)
             update.message.reply_text('Введите число. \n Первое число - это: ')
             return NUMBER_ONE
         if user_choice == '2':
+            user = update.message.from_user
+            logging.info("The user has completed the work: %s: %s", user.first_name, update.message.text)
             update.message.reply_text('До свидания!')
             return ConversationHandler.END
     else:
@@ -24,6 +31,8 @@ def choice(update, _):
 
 
 def number_one(update, context):
+    user = update.message.from_user
+    logging.info("The user entered a number: %s: %s", user.first_name, update.message.text)
     get_number = update.message.text
     if get_number.isdigit():
         get_number = float(get_number)
@@ -36,6 +45,8 @@ def number_one(update, context):
 
 
 def number_two(update, context):
+    user = update.message.from_user
+    logging.info("The user entered a number: %s: %s", user.first_name, update.message.text)
     get_number = update.message.text
     if get_number.isdigit():
         get_number = float(get_number)
@@ -48,6 +59,8 @@ def number_two(update, context):
 
 
 def operations_numbers(update, context):
+    user = update.message.from_user
+    logging.info("The user has selected an operation %s: %s", user.first_name, update.message.text)
     num_one = context.user_data.get('number_one')
     num_two = context.user_data.get('number_two')
     user_choice = update.message.text
@@ -65,6 +78,7 @@ def operations_numbers(update, context):
             except ZeroDivisionError:
                 update.message.reply_text('Деление на ноль запрещено')
                 exit()
+        logging.info(f"result -{result} %s: %s", user.first_name, update.message.text)
         update.message.reply_text(f'Результат: {num_one} + {num_two} = {result}')
         return ConversationHandler.END
     else:
@@ -74,6 +88,8 @@ def operations_numbers(update, context):
 
 
 def cancel(update, _):
+    user = update.message.from_user
+    logging.info("User %s canceled the conversation.", user.first_name)
     update.message.reply_text('Спасибо, до свидания!')
     return ConversationHandler.END
 
