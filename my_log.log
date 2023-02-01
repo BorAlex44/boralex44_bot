@@ -1,0 +1,17 @@
+01-02-2023 19:48:34 - apscheduler.scheduler - INFO - Scheduler started
+01-02-2023 19:48:42 - root - INFO - Start of the program: Александр: 1
+01-02-2023 19:48:42 - root - INFO - The user has started work: Александр: 1
+01-02-2023 19:48:44 - root - INFO - The user entered a number: Александр: 10
+01-02-2023 19:48:46 - root - INFO - The user entered a number: Александр: 10
+01-02-2023 19:48:47 - root - INFO - The user has selected an operation Александр: +
+01-02-2023 19:48:47 - root - INFO - result -20.0 Александр: +
+01-02-2023 19:48:52 - root - INFO - Start of the program: Александр: 1
+01-02-2023 19:48:52 - root - INFO - The user has started work: Александр: 1
+01-02-2023 19:48:56 - root - INFO - The user entered a number: Александр: 10
+01-02-2023 19:48:57 - root - INFO - The user entered a number: Александр: 2
+01-02-2023 19:49:00 - root - INFO - The user has selected an operation Александр: *
+01-02-2023 19:49:00 - root - INFO - result -20.0 Александр: *
+01-02-2023 19:49:04 - root - INFO - Start of the program: Александр: 2
+01-02-2023 19:49:04 - root - INFO - The user has completed the work: Александр: 2
+01-02-2023 19:49:19 - telegram.ext.updater - INFO - Received signal 2 (SIGINT), stopping...
+01-02-2023 19:49:19 - apscheduler.scheduler - INFO - Scheduler has been shut down
